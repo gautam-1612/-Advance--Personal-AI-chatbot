@@ -1,0 +1,168 @@
+{
+  "name": "Gautam Bhushan",
+  "profile_summary": "Software Engineer with 2+ years of professional experience developing enterprise software solutions. Strong foundation in full-stack web development with React, Next.js, Node.js, and MongoDB through hands-on projects.",
+  "email": "gautambhushan5@gmail.com",
+  "phone": "+91-8725835407",
+  "github": "https://github.com/gautam-1612",
+  "linkedin": "https://www.linkedin.com/in/gautam-bhushan-/",
+  "leetcode": {
+    "profile_url": "https://leetcode.com/u/gautambhushan/",
+    "problems_solved": "180+",
+    "badges": [
+      "50-day LeetCode badge (2024)",
+      "50-day LeetCode badge (2026)"
+    ]
+  },
+  "education": [
+    {
+      "institution": "Punjab Technical University",
+      "degree": "Bachelor of Technology in Computer Science & Engineering",
+      "cgpa": "7.2",
+      "start_year": 2018,
+      "end_year": 2022
+    }
+  ],
+  "experience": [
+    {
+      "company": "Wipro Limited",
+      "location": "Noida, India",
+      "designation": "Project Engineer",
+      "start_date": "Dec 2022",
+      "end_date": "Apr 2025",
+      "responsibilities": [
+        "Collaborated with cross-functional teams delivering enterprise software solutions for a global telecom client, Ericsson.",
+        "Managed and resolved Jira tickets within agile sprints, ensuring timely fixes and stable application releases.",
+        "Debugged and fixed application issues, improving performance, reliability, and overall system stability.",
+        "Created technical and process documentation to improve collaboration and long-term maintainability."
+      ]
+    }
+  ],
+  "skills": [
+    "JavaScript",
+    "C++",
+    "React.js",
+    "Next.js",
+    "HTML",
+    "CSS",
+    "Tailwind CSS",
+    "Node.js",
+    "Express.js",
+    "REST APIs",
+    "MongoDB",
+    "Supabase",
+    "Google Cloud Platform (GCP)",
+    "Git",
+    "GitHub",
+    "VSCode",
+    "Docker",
+    "LLMs",
+    "Prompt Engineering",
+    "Structured Outputs",
+    "JSON",
+    "Pydantic",
+    "Prompt Chaining",
+    "LLM Streaming",
+    "AI Application Development"
+  ],
+  "certifications": [
+    {
+      "name": "The Complete JavaScript Course 2025: From Zero to Expert by Jonas Schmedtmann",
+      "link": "https://www.udemy.com/certificate/UC-df4e925c-a376-4ef6-8074-80533c919596/"
+    },
+    {
+      "name": "The Ultimate React Course 2025: React, Next.js, Redux & More by Jonas Schmedtmann",
+      "link": "https://www.udemy.com/certificate/UC-3011e7f0-9ec7-47d2-9d97-074d7fee6240/"
+    }
+  ],
+  "achievements": [
+    "Solved 180+ LeetCode problems.",
+    "Earned a 50-day LeetCode badge in 2024.",
+    "Earned a 50-day LeetCode badge in 2026."
+  ],
+  "projects": [
+    {
+      "name": "Advance Personal AI Chatbot",
+      "description": "Personal AI chatbot application built as part of ongoing LLM and AI application development work.",
+      "technologies": [
+        "JavaScript",
+        "React.js",
+        "Python",
+        "FastAPI",
+        "Groq",
+        "LLMs",
+        "Prompt Engineering",
+        "CSS"
+      ],
+      "link": "https://github.com/gautam-1612/-Advance--Personal-AI-chatbot",
+      "priority": 1
+    },
+    {
+      "name": "Resume Matching Agent",
+      "description": "AI-powered resume screening and job matching system that extracts structured JD and resume data, evaluates skill, education, and experience matches, and ranks candidates using weighted scoring.",
+      "technologies": [
+        "Python",
+        "LLMs",
+        "Groq",
+        "Prompt Engineering",
+        "JSON",
+        "Pydantic"
+      ],
+      "link": "https://github.com/gautam-1612/-Medium--Resume-Matching-Agent",
+      "priority": 5
+    },
+    {
+      "name": "Valren Online Store",
+      "description": "Full-stack e-commerce application implementing modular MVC architecture, authentication, authorization, password reset emails, secure session management, payment workflows, automated invoice generation, and email notifications.",
+      "technologies": [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Mongoose",
+        "EJS",
+        "Express Validator",
+        "bcrypt",
+        "CSRF",
+        "PDFKit",
+        "Stripe",
+        "Nodemailer"
+      ],
+      "link": "https://github.com/gautam-1612/-Advance--Valren-Online-Store",
+      "priority": 2
+    },
+    {
+      "name": "The Wild Oasis Website",
+      "description": "Full-stack hotel booking application built using Next.js App Router with server and client components, authentication, protected routes, Supabase data management, dynamic cabin listings, booking workflows, Server Actions, caching, and modern React patterns.",
+      "technologies": [
+        "Next.js",
+        "Next.js App Router",
+        "React",
+        "React Server Components",
+        "Supabase",
+        "Tailwind CSS",
+        "Server Actions",
+        "Caching",
+        "Context API",
+        "Google Cloud Authentication"
+      ],
+      "link": "https://github.com/gautam-1612/-Advance--The-Wild-Oasis-Website",
+      "priority": 3
+    },
+    {
+      "name": "The Wild Oasis Dashboard",
+      "description": "Internal hotel management dashboard for managing cabins, bookings, guests, and analytics, with authentication, role-based access control, live booking statistics, and theme switching.",
+      "technologies": [
+        "React.js",
+        "Vite",
+        "React Router",
+        "Supabase",
+        "Supabase Auth",
+        "Context API",
+        "TanStack React Query",
+        "Styled Components",
+        "Recharts"
+      ],
+      "link": "https://github.com/gautam-1612/-Advance--The-Wild-Oasis-Dashboard",
+      "priority": 4
+    }
+  ]
+}

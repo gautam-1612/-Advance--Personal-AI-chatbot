@@ -1,46 +1,66 @@
 import { useState } from "react";
 import styles from "./ChatSection.module.css";
 import { Send } from "lucide-react";
+import { useDispatch } from "react-redux";
+import { addMessage, changeStatus } from "../slice/chatHistory";
+import Chat from "./Chat";
 
 export default function ChatSection() {
-
+  const dispatch = useDispatch();
   const [query, setQuery] = useState("");
 
-  const handleChange = function(e) {
+  const handleChange = function (e) {
     setQuery(e.target.value);
-  }
+  };
 
-  const handleFormSubmit = function(e) {
+  const handleFormSubmit = function (e) {
     e.preventDefault();
-    
-    async function sendingQuery() {
-    const response = await fetch("http://localhost:8000/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: query })
-    })
 
-    const data = await response.json();
-    console.log(data)
-    setQuery("");
+    const userQuery = {
+      role: "user",
+      content: query,
+    };
+
+    dispatch(addMessage(userQuery));
+    dispatch(changeStatus(true));
+
+    async function sendingQuery() {
+      try {
+        const response = await fetch("http://localhost:8000/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: query }),
+        });
+        const data = await response.json();
+
+        const assistantResponse = {
+          role: "assistant",
+          content: data,
+        };
+        dispatch(addMessage(assistantResponse));
+        setQuery("");
+      } catch (error) {
+        console.error("Error fetching assistant response:", error);
+      } finally {
+        dispatch(changeStatus(false));
+      }
     }
-    sendingQuery();
-  }
+
+    sendingQuery(); // <-- Moved inside handleFormSubmit
+  };
 
   return (
     <div className={styles.container}>
+      
+      <Chat />
 
-      <div className={styles.emptyChat}>
-        <p>Hi! I'm Gautam's AI assistant.</p>
-        <p>Ask me anything about his skills, projects, experience, or education.</p>
-      </div>
 
       <form onSubmit={(e) => handleFormSubmit(e)} className={styles.form}>
         <textarea
           value={query}
           className={styles.input}
           placeholder="Ask me anything..."
-          rows="1"
+          rows="3"
           onChange={(e) => handleChange(e)}
         />
 

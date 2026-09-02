@@ -1,37 +1,6 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
-from fastapi.middleware.cors import CORSMiddleware
-
-app = FastAPI()
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-
-@app.get("/")
-def home():
-    return {"message": "Ask Gautam API is running"}
-
-
-class ChatRequest(BaseModel):
-    message: str
-
-
-@app.post("/chat")
-def chat(request: ChatRequest):
-    response = askAI(request.message)
-    return response
-
-
-# LLM request and response
-
 from groq import Groq
 from dotenv import load_dotenv
+from pydantic import BaseModel
 import os
 
 load_dotenv()
@@ -39,20 +8,13 @@ load_dotenv()
 my_api_key = os.getenv("MY_API_KEY")
 
 client = Groq(api_key=my_api_key)
-model = "openai/gpt-oss-120b"
-
-
-class Link(BaseModel):
-    name: str
-    url: str
 
 
 class Response(BaseModel):
     text: str
-    links: list[Link] = []
+    link: str | None = None
 
-
-sysPrompt = f"""
+sysPrompt = """
 You are an AI assistant representing Gautam Bhushan as a professional
 portfolio and recruiter-facing assistant.
 
@@ -124,38 +86,10 @@ Accuracy and honesty are more important than making the candidate
 appear more qualified.
 """
 
-sysMessage = {"role": "system", "content": sysPrompt}
+sysMsg = {
+    "role": "system",       
+    "content": sysPrompt
+}
 
 
-import json
 
-
-def askAI(question):
-
-    with open("profile.json", "r", encoding="utf-8") as file:
-        profile = json.load(file)
-
-    userPrompt = f"""
-Here is Gautam Bhushan's professional profile:
-
-{json.dumps(profile, indent=2)}
-
-User's question:
-
-{question}
-"""
-
-    userMessage = {"role": "user", "content": userPrompt}
-
-    messages = [sysMessage, userMessage]
-
-    Response = client.chat.completions.create(
-        model=model,
-        temperature=1,
-        messages=messages,
-        response_format={"type": "json_object"},
-    )
-
-    answer = Response.choices[0].message.content
-
-    return json.loads(answer)
