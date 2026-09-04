@@ -1,39 +1,95 @@
 .header {
   display: flex;
+
   height: 10vh;
+
   align-items: center;
   justify-content: space-between;
+
   padding: 16px 32px;
-  border-bottom: 1px solid #e5e7eb;
+
+  border-bottom: 1px solid var(--border);
+
+  position: relative;
+  z-index: 10;
+
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+
+  box-sizing: border-box;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
+
+
+/* =========================
+   LOGO
+========================= */
 
 .logo {
   font-size: 24px;
   font-weight: 600;
+
   letter-spacing: 0.2px;
+
+  color: var(--text-primary);
 }
 
+
+/* =========================
+   THEME BUTTON
+========================= */
+
 .theme {
-  width: 20px;
-  height: 20px;
+  width: 36px;
+  height: 36px;
+
   border: none;
   border-radius: 50%;
-  background: #f3f4f6;
+
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   font-size: 16px;
+
   cursor: pointer;
 
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .theme:hover {
-  background: #e5e7eb;
+  background: var(--border);
+
+  color: var(--text-primary);
 }
 
 .theme:active {
   transform: scale(0.95);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .header {
+    height: 64px;
+
+    padding: 12px 18px;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
 }

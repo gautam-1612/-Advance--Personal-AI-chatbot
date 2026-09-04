@@ -1,21 +1,25 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { toggleTheme } from '../slice/theme';
 import styles from './Header.module.css';
+import useTheme from '../hooks/theme';
+import { Moon, SunDim } from "lucide-react";
 
 export default function Header() {
 
-  const theme = useSelector((state) => state.theme.theme);
-  const dispatch = useDispatch();
+  const [darkMode, setDarkMode] = useTheme();
 
   return (
     <div className={styles.header}>
       <h2 className={styles.logo}>Ask Gautam</h2>
 
       <button
+        onClick={() => setDarkMode((prev) => !prev)}
         className={styles.theme}
-        onClick={() => dispatch(toggleTheme())}
+        aria-label="Toggle dark mode"
       >
-        {theme === "light" ? "☀️" : "🌙"}
+        {darkMode ? (
+          <SunDim size={20} />
+        ) : (
+          <Moon size={18} />
+        )}
       </button>
     </div>
   )

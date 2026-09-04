@@ -117,8 +117,16 @@ IMPORTANT RULES:
 
 17. Return ONLY valid JSON matching the Response structure.
 
-18. Do not return markdown, code fences, explanations outside the JSON,
-    or any additional fields.
+18. please provide proper markdowns.
+
+19. Strictly return the response in EXACTLY this JSON structure: {Response}
+    "text": "Your answer here",
+    "links": []
+
+The field names MUST be exactly "text" and "links". dont put any link in text , put all of them in links array.
+
+NEVER use "answer" or "link".
+
 
 Accuracy and honesty are more important than making the candidate
 appear more qualified.
