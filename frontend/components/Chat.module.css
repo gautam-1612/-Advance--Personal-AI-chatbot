@@ -230,3 +230,38 @@
 .chat::-webkit-scrollbar-thumb:hover {
   background: var(--scrollbar-hover);
 }
+
+.loadingDot {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 4px;
+}
+
+.loadingDot span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.loadingDot span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loadingDot span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(0.7);
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+}

@@ -10,12 +10,15 @@ function Chat() {
   );
 
   const chatEndRef = useRef(null);
-console.log(chatHistory)
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({
       behavior: "smooth",
     });
   }, [chatHistory]);
+
+  const isLoading = useSelector(
+    (state) => state.chatHistory.isLoading
+  );
 
   return (
     <div className={styles.chat}>
@@ -74,10 +77,17 @@ console.log(chatHistory)
               </div>
             );
           }
-
           return null;
         })
       )}
+
+      {isLoading && (
+      <div className={styles.loadingDot}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+)}
 
       <div ref={chatEndRef} />
     </div>
