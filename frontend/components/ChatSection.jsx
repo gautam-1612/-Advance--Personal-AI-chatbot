@@ -34,8 +34,7 @@ export default function ChatSection() {
 
     async function sendingQuery() {
       try {
-        const response = await fetch(
-          "api/chat",
+        const response = await fetch("https://personal-ai-chatbot-cyan.vercel.app/chat",
           {
             method: "POST",
             headers: {
